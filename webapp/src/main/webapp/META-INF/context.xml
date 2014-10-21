@@ -17,7 +17,7 @@
 -->
 <!-- The contents of this file will be loaded for each web application -->
 
-<Context clearReferencesThreadLocals="true" clearReferencesStopTimerThreads="true" >
+<Context clearReferencesThreadLocals="true" clearReferencesStopTimerThreads="true" path="/sos">
 <!-- antiJARLocking="true" antiResourceLocking="true" -->
 
     <!-- Default set of monitored resources -->
