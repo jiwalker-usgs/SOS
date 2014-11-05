@@ -436,25 +436,24 @@ public class SeriesObservationDAO extends AbstractObservationDAO {
         if (CollectionHelper.isNotEmpty(request.getProcedures())) {
             c.createCriteria("s." + Series.PROCEDURE).add(
                     Restrictions.in(Procedure.IDENTIFIER, request.getProcedures()))
-                        .addOrder(Order.asc(Series.PROCEDURE));;
+                        .addOrder(Order.asc("s." + Series.PROCEDURE));;
         }
 
         if (CollectionHelper.isNotEmpty(request.getObservedProperties())) {
             c.createCriteria("s." + Series.OBSERVABLE_PROPERTY).add(
                     Restrictions.in(ObservableProperty.IDENTIFIER, request.getObservedProperties()))
-                        .addOrder(Order.asc(Series.OBSERVABLE_PROPERTY));
+                        .addOrder(Order.asc("s." + Series.OBSERVABLE_PROPERTY));
         }
 
         if (CollectionHelper.isNotEmpty(features)) {
             c.createCriteria("s." + Series.FEATURE_OF_INTEREST).add(
                     Restrictions.in(FeatureOfInterest.IDENTIFIER, features))
-                        .addOrder(Order.asc(Series.FEATURE_OF_INTEREST));
+                        .addOrder(Order.asc("s." + Series.FEATURE_OF_INTEREST));
         }
 
         if (CollectionHelper.isNotEmpty(request.getOfferings())) {
             c.createCriteria(SeriesObservation.OFFERINGS).add(
-                    Restrictions.in(Offering.IDENTIFIER, request.getOfferings()))
-                        .addOrder(Order.asc(SeriesObservation.OFFERINGS));
+                    Restrictions.in(Offering.IDENTIFIER, request.getOfferings()));
         }
 
         String logArgs = "request, features, offerings";
